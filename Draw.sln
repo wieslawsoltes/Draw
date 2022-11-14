@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{43188A09-346E-4C06-87EA-C198EF3B93AF}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{155F98E9-FE27-49E0-A934-DD8F8F82AC02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw.Base", "Draw.Base\Draw.Base.csproj", "{01A96B19-7940-4003-9D32-DD1CE0512765}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw.Desktop", "Draw.Desktop\Draw.Desktop.csproj", "{47386ADF-4298-47EE-A09B-508D615FEA7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw.Android", "Draw.Android\Draw.Android.csproj", "{3E6FF0BD-4F32-4642-9CBE-BB075257B71D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{01A96B19-7940-4003-9D32-DD1CE0512765} = {155F98E9-FE27-49E0-A934-DD8F8F82AC02}
+		{47386ADF-4298-47EE-A09B-508D615FEA7C} = {155F98E9-FE27-49E0-A934-DD8F8F82AC02}
+		{3E6FF0BD-4F32-4642-9CBE-BB075257B71D} = {155F98E9-FE27-49E0-A934-DD8F8F82AC02}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01A96B19-7940-4003-9D32-DD1CE0512765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A96B19-7940-4003-9D32-DD1CE0512765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A96B19-7940-4003-9D32-DD1CE0512765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A96B19-7940-4003-9D32-DD1CE0512765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47386ADF-4298-47EE-A09B-508D615FEA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47386ADF-4298-47EE-A09B-508D615FEA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47386ADF-4298-47EE-A09B-508D615FEA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47386ADF-4298-47EE-A09B-508D615FEA7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E6FF0BD-4F32-4642-9CBE-BB075257B71D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E6FF0BD-4F32-4642-9CBE-BB075257B71D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E6FF0BD-4F32-4642-9CBE-BB075257B71D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E6FF0BD-4F32-4642-9CBE-BB075257B71D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

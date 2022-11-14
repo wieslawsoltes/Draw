@@ -1,0 +1,9 @@
+﻿<Project>
+ <PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+ </PropertyGroup>
+  <PropertyGroup>
+    <AvaloniaVersion>11.0.0-preview4</AvaloniaVersion>
+  </PropertyGroup>
+</Project>
