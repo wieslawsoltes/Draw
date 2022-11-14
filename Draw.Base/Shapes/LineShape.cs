@@ -3,7 +3,7 @@ using Avalonia.Media;
 
 namespace Draw.Shapes;
 
-public class LineShape
+public class LineShape : BaseShape
 {
     public IPen? Pen { get; set; }
     
@@ -11,7 +11,7 @@ public class LineShape
     
     public Point End { get; set; }
 
-    public void Draw(DrawingContext context)
+    public override void Draw(DrawingContext context)
     {
         if (Pen is { })
         {

@@ -2,63 +2,53 @@ using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
-using Avalonia.Media.Immutable;
 
 namespace Draw.Shapes;
 
-public class CanvasShape
+public class CanvasShape : BaseShape
 {
     private readonly Control _control;
-    private List<LineShape> _lines = new ();
-    private LineShape? _lineShape;
+
+    public List<BaseShape> Children { get; set; }
+
+    public Tool? CurrentTool { get; set; }
+
+    public List<Tool> Tools { get; set; }
 
     public CanvasShape(Control control)
     {
         _control = control;
+
+        Children = new List<BaseShape>();
+
+        Tools = new List<Tool>
+        {
+            new LineTool()
+        };
+
+        CurrentTool = Tools[0];
     }
-    
+
     public void Pressed(PointerPressedEventArgs e)
     {
-        if (!Equals(e.Pointer.Captured, _control) && _lineShape is null)
-        {
-            _lineShape = new LineShape
-            {
-                Pen = new ImmutablePen(Colors.Red.ToUint32(), 2d), Start = e.GetPosition(_control)
-            };
-
-            _lineShape.End = _lineShape.Start;
-
-            _lines.Add(_lineShape);
-
-            e.Pointer.Capture(_control);
-
-            _control.InvalidateVisual();
-        }
+        CurrentTool?.Pressed(this, _control, e);
     }
 
     public void Released(PointerReleasedEventArgs e)
     {
-        if (Equals(e.Pointer.Captured, _control) && _lineShape is { })
-        {
-            _lineShape = null;
-            e.Pointer.Capture(null);
-        }
+        CurrentTool?.Released(this, _control, e);
     }
 
     public void Moved(PointerEventArgs e)
     {
-        if (Equals(e.Pointer.Captured, _control) && _lineShape is { })
-        {
-            _lineShape.End = e.GetPosition(_control);
-            _control.InvalidateVisual();
-        }
+        CurrentTool?.Moved(this, _control, e);
     }
 
-    public void Draw(DrawingContext context)
+    public override void Draw(DrawingContext context)
     {
-        foreach (var lineShape in _lines)
+        foreach (var child in Children)
         {
-            lineShape.Draw(context);
+            child.Draw(context);
         }
     }
 }
